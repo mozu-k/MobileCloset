@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MobileCloset</string>
+    <string name="enter_button">決定</string>
+    <string name="name">名前</string>
+    <string name="category">カテゴリー</string>
+    <string name="color">色</string>
+    <string name="price">値段</string>
+    <string name="brand">ブランド</string>
+    <string name="tops">トップス</string>
+</resources>
