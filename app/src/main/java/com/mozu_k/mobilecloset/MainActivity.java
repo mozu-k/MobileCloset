@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         addButton.setOnClickListener(this);
     }
 
+    //アイテム追加画面へ
     @Override
     public void onClick(View view) {
         switch(view.getId()){

@@ -54,6 +54,7 @@
         android:background="#fff"
         android:spinnerMode="dropdown"
         android:gravity="center"
+        android:textSize="15dp"
         app:layout_constraintTop_toBottomOf="@id/name"
         app:layout_constraintBottom_toTopOf="@+id/color"
         app:layout_constraintStart_toStartOf="@id/name"
