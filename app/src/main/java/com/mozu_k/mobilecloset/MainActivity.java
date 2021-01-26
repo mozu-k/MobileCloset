@@ -7,14 +7,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private OpenHelper helper;
     private SQLiteDatabase db;
-    private TextView first;
+    private ListView listView;
+    private static final int REQUEST_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button addButton = (Button)findViewById(R.id.add);
         addButton.setOnClickListener(this);
 
-        this.first = (TextView)findViewById(R.id.first);
+        this.listView = (ListView)findViewById(R.id.listView);
         readData();
     }
 
@@ -36,7 +42,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(view.getId()){
             case R.id.add:
                 Intent intent = new Intent(this,AddActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,REQUEST_CODE);
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_CODE:  //AddActivity
+                if (RESULT_OK == resultCode) {
+                    readData();
+                }
                 break;
         }
     }
@@ -46,24 +64,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Cursor cursor = db.query(
                 "ClosetDB",
-                new String[] {"title","category","color","price","brand"},
+                new String[] {"_id","title","category","color","price","brand"},
                 null,
                 null,
                 null,
                 null,
                 null
         );
-        cursor.moveToFirst();
 
-        StringBuffer sb = new StringBuffer();
-        for(int i = 0; i < cursor.getCount(); i++){
-            sb.append(cursor.getString(1));
-            sb.append("\n");
-            sb.append(cursor.getString(0));
-            cursor.moveToNext();
-        }
-        cursor.close();
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
+                this,
+                android.R.layout.simple_list_item_2,
+                cursor,
+                new String[] {"title", "category"},
+                new int[] {android.R.id.text1, android.R.id.text2},
+                0);
 
-        this.first.setText(sb.toString());
+        this.listView.setAdapter(adapter);
     }
 }

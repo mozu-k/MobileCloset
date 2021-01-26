@@ -51,6 +51,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.enter:
+                Intent intent = new Intent();
                 this.db = this.helper.getWritableDatabase();
 
                 ContentValues values = new ContentValues();
@@ -67,6 +68,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
                 db.insert("ClosetDB",null,values);
 
+                setResult(RESULT_OK,intent);
                 finish();
         }
     }

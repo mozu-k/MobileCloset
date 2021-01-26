@@ -18,7 +18,7 @@ public class OpenHelper extends SQLiteOpenHelper {
 
     //テーブル新規作成
    private static final String SQL_CREATE_TABLE =
-            "CREATE TABLE ClosetDB(id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT,category TEXT,color TEXT,price integer,brand TEXT)";
+            "CREATE TABLE ClosetDB(_id INTEGER PRIMARY KEY AUTOINCREMENT,title TEXT,category TEXT,color TEXT,price integer,brand TEXT)";
 
    //テーブル削除
     private static final String SQL_DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
