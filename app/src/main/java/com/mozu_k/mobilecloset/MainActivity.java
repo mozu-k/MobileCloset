@@ -1,6 +1,10 @@
 package com.mozu_k.mobilecloset;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -17,9 +21,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private OpenHelper helper;
-    private SQLiteDatabase db;
-    private ListView listView;
+    private ViewPager pager;
     private static final int REQUEST_CODE = 1;
 
     @Override
@@ -27,13 +29,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        helper = new OpenHelper(getApplicationContext());
+        //viewPager
+        pager = (ViewPager) findViewById(R.id.pager);
+        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(pagerAdapter);
 
+        //プラスボタンが押されたとき
         Button addButton = (Button)findViewById(R.id.add);
         addButton.setOnClickListener(this);
-
-        this.listView = (ListView)findViewById(R.id.listView);
-        readData();
     }
 
     //アイテム追加画面へ
@@ -53,33 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (requestCode) {
             case REQUEST_CODE:  //AddActivity
                 if (RESULT_OK == resultCode) {
-                    readData();
+                    PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+                    pager.setAdapter(pagerAdapter);
                 }
                 break;
         }
-    }
-
-    public void readData(){
-        db = helper.getReadableDatabase();
-
-        Cursor cursor = db.query(
-                "ClosetDB",
-                new String[] {"_id","title","category","color","price","brand"},
-                null,
-                null,
-                null,
-                null,
-                null
-        );
-
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(
-                this,
-                android.R.layout.simple_list_item_2,
-                cursor,
-                new String[] {"title", "category"},
-                new int[] {android.R.id.text1, android.R.id.text2},
-                0);
-
-        this.listView.setAdapter(adapter);
     }
 }

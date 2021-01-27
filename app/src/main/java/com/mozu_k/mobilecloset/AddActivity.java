@@ -25,7 +25,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_add);
 
         //カテゴリー用ドロップダウン
-        String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物"};
+        String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this,R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
