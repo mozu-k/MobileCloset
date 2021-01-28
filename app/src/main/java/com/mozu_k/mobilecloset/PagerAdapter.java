@@ -18,7 +18,8 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        Fragment fragment = new TopsFragment();
+        TopsFragment fragment = new TopsFragment();
+        fragment.setFragmentNumber(position);
         return fragment;
     }
 

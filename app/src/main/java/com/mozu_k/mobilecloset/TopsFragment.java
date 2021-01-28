@@ -37,12 +37,15 @@ public class TopsFragment extends Fragment {
         //上部のカテゴリー名を設定
         TextView categoryTitle = (TextView)view.findViewById(R.id.category_title);
         categoryTitle.setText((CharSequence) categories[fragmentNumber]);
-        //fragmentNumber = viewPager.getCurrentItem();
         listView = (ListView)view.findViewById(R.id.listView);
-        readData(view);
+        readData();
     }
 
-    public void readData(View view){
+    public void setFragmentNumber(int fragmentNumber){
+        this.fragmentNumber = fragmentNumber;
+    }
+
+    public void readData(){
         helper = new OpenHelper(getContext());
         db = helper.getReadableDatabase();
 
