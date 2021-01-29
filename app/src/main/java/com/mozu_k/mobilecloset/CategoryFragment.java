@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-public class TopsFragment extends Fragment {
+public class CategoryFragment extends Fragment {
 
     private ViewPager viewPager;
     private ListView listView;
@@ -27,7 +27,7 @@ public class TopsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        return inflater.inflate(R.layout.fragment_tops, container, false);
+        return inflater.inflate(R.layout.fragment_category, container, false);
     }
 
     @Override
@@ -37,6 +37,7 @@ public class TopsFragment extends Fragment {
         //上部のカテゴリー名を設定
         TextView categoryTitle = (TextView)view.findViewById(R.id.category_title);
         categoryTitle.setText((CharSequence) categories[fragmentNumber]);
+
         listView = (ListView)view.findViewById(R.id.listView);
         readData();
     }

@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
-import java.util.ArrayList;
-
 public class PagerAdapter extends FragmentStatePagerAdapter {
     private static final int NUM_PAGES = 8;
     private String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
@@ -18,7 +16,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        TopsFragment fragment = new TopsFragment();
+        CategoryFragment fragment = new CategoryFragment();
         fragment.setFragmentNumber(position);
         return fragment;
     }
