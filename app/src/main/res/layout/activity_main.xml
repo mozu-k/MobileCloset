@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"></androidx.viewpager.widget.ViewPager>
 
-    <Button
+    <ImageButton
         android:id="@+id/add"
         android:layout_width="80dp"
         android:layout_height="80dp"
@@ -20,7 +20,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="20dp"
         android:layout_marginEnd="20dp"
-        android:background="@drawable/shape_ring"
-        ></Button>
+        android:src="@drawable/ic_baseline_add_circle_outline_75"
+        android:background="@null"
+        ></ImageButton>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
