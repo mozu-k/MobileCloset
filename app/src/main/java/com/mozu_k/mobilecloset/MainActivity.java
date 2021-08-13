@@ -23,6 +23,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ViewPager pager;
+    private PagerAdapter pagerAdapter;
     private static final int REQUEST_CODE = 1;
 
     @Override
@@ -32,8 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //viewPager
         pager = (ViewPager) findViewById(R.id.pager);
-        PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
-        pager.setAdapter(pagerAdapter);
+        this.pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        pager.setAdapter(this.pagerAdapter);
 
         //プラスボタンが押されたとき
         ImageButton addButton = (ImageButton)findViewById(R.id.add);
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch(view.getId()){
             case R.id.add:
                 Intent intent = new Intent(this,AddActivity.class);
+                intent.putExtra("page",this.pager.getCurrentItem());
                 startActivityForResult(intent,REQUEST_CODE);
                 break;
         }

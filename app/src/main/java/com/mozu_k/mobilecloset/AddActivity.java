@@ -24,16 +24,22 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
 
+        //開いていたカテゴリの番号を取得
+        Intent intent = getIntent();
+        Bundle extra = intent.getExtras();
+        int currentPageNumber = extra.getInt("page");
+
         //カテゴリー用ドロップダウン
         String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this,R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
-        for(int i = 0; i < categories.length; i++){
+        for(int i = 0; i < categories.length; i++) {
             adapter.add(categories[i]);
         }
         this.category = (Spinner)findViewById(R.id.category);
         this.category.setAdapter(adapter);
+        this.category.setSelection(currentPageNumber);  //初期値を開いていたカテゴリに自動で設定
 
         this.name = (EditText)findViewById(R.id.name);
         this.color = (EditText)findViewById(R.id.color);
