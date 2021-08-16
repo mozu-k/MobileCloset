@@ -1,11 +1,14 @@
 package com.mozu_k.mobilecloset;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
@@ -15,7 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-public class CategoryFragment extends Fragment {
+public class CategoryFragment extends Fragment implements AdapterView.OnItemClickListener {
 
     private ViewPager viewPager;
     private ListView listView;
@@ -39,6 +42,7 @@ public class CategoryFragment extends Fragment {
         categoryTitle.setText((CharSequence) categories[fragmentNumber]);
 
         listView = (ListView)view.findViewById(R.id.listView);
+        listView.setOnItemClickListener(this);
         readData();
     }
 
@@ -69,5 +73,12 @@ public class CategoryFragment extends Fragment {
                 0);
 
         listView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(getActivity(),DetailActivity.class);
+        intent.putExtra("id",(int)id);
+        startActivity(intent);
     }
 }

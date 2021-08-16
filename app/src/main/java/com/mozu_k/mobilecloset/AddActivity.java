@@ -18,6 +18,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     private Spinner category;
     private OpenHelper helper;
     private SQLiteDatabase db;
+    private int currentPageNumber;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -27,7 +28,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         //開いていたカテゴリの番号を取得
         Intent intent = getIntent();
         Bundle extra = intent.getExtras();
-        int currentPageNumber = extra.getInt("page");
+        this.currentPageNumber = extra.getInt("page");
 
         //カテゴリー用ドロップダウン
         String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
@@ -48,6 +49,8 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
         Button enterButton = (Button)findViewById(R.id.enter);
         enterButton.setOnClickListener(this);
+        Button cancelButton = (Button)findViewById(R.id.cancel);
+        cancelButton.setOnClickListener(this);
 
         this.helper = new OpenHelper(getApplicationContext());
     }
@@ -75,6 +78,10 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
                 db.insert("ClosetDB",null,values);
 
                 setResult(RESULT_OK,intent);
+                intent.putExtra("page",this.currentPageNumber);  //同じページに戻るためページ番号渡す
+                finish();
+
+            case R.id.cancel:
                 finish();
         }
     }
