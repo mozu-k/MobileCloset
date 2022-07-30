@@ -10,12 +10,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class AddActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private EditText name,color,price,brand;
+    private EditText name,price,brand;
     private Spinner category;
+    private RadioGroup color;
     private OpenHelper helper;
     private SQLiteDatabase db;
     private int currentPageNumber;
@@ -43,7 +46,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         this.category.setSelection(currentPageNumber);  //初期値を開いていたカテゴリに自動で設定
 
         this.name = (EditText)findViewById(R.id.name);
-        this.color = (EditText)findViewById(R.id.color);
+        this.color = (RadioGroup)findViewById(R.id.color);
         this.price = (EditText)findViewById(R.id.price);
         this.brand = (EditText)findViewById(R.id.brand);
 
@@ -67,7 +70,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
                 values.put("title",this.name.getText().toString());
                 values.put("category",this.category.getSelectedItem().toString());
-                values.put("color",this.color.getText().toString());
+                //values.put("color",this.color.getText().toString());
                 if(this.price.getText().toString().equals("") == false){
                     values.put("price",Integer.parseInt(this.price.getText().toString()));
                 }else{

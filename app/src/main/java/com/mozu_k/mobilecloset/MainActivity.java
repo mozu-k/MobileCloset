@@ -23,8 +23,8 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private ViewPager pager;
-    private PagerAdapter pagerAdapter;
+    public static ViewPager pager;
+    public static PagerAdapter pagerAdapter;
     private static final int REQUEST_CODE = 1;
     private int currentPageNumber;
 
@@ -34,11 +34,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         //viewPager
-        pager = (ViewPager) findViewById(R.id.pager);
+        this.pager = (ViewPager) findViewById(R.id.pager);
         this.pagerAdapter = new PagerAdapter(getSupportFragmentManager());
-        pager.setAdapter(this.pagerAdapter);
+        this.pager.setAdapter(this.pagerAdapter);
 
-        //ボタンが押されたとき
+        //addボタンが押されたとき
         ImageButton addButton = (ImageButton)findViewById(R.id.add);
         addButton.setOnClickListener(this);
     }
@@ -62,17 +62,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
-            case REQUEST_CODE:  //AddActivityから決定で戻るとき
-                if (RESULT_OK == resultCode) {
+            case 1: //return from add
+                if(RESULT_OK == resultCode){
                     //元のページ番号知る
                     Bundle extra = data.getExtras();
                     this.currentPageNumber = extra.getInt("page");
 
-                    PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager());
-                    pager.setAdapter(pagerAdapter);
-                    pager.setCurrentItem(this.currentPageNumber); //最初と同じページを初期表示にする
+                    this.pagerAdapter.notifyDataSetChanged();
+                    break;
                 }
-                break;
         }
     }
 }

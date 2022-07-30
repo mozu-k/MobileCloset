@@ -6,7 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:spinnerStyle">@style/spinnerStyle</item>
-        <item name="android:spinnerDropDownItemStyle">@style/spinnerDropDownItemStyle</item>
+        <item name="spinnerDropDownItemStyle">@style/spinnerDropDownItemStyle</item>
     </style>
 
     <style name="spinnerStyle" parent="android:Widget.Holo.Light.Spinner">

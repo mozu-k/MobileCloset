@@ -20,12 +20,13 @@ import androidx.viewpager.widget.ViewPager;
 
 public class CategoryFragment extends Fragment implements AdapterView.OnItemClickListener {
 
-    private ViewPager viewPager;
     private ListView listView;
     private OpenHelper helper;
     private SQLiteDatabase db;
     private int fragmentNumber = 0;
     private String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
+    private static final int REQUEST_CODE = 3;
+    private static final int RESULT_OK = -1;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -79,6 +80,19 @@ public class CategoryFragment extends Fragment implements AdapterView.OnItemClic
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getActivity(),DetailActivity.class);
         intent.putExtra("id",(int)id);
-        startActivity(intent);
+        intent.putExtra("page",fragmentNumber);
+        startActivityForResult(intent,REQUEST_CODE);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case REQUEST_CODE:
+                if (RESULT_OK == resultCode) {
+                    MainActivity.pagerAdapter.notifyDataSetChanged();
+                    break;
+                }
+        }
     }
 }
