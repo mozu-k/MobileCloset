@@ -86,7 +86,7 @@
         app:layout_constraintStart_toStartOf="parent">
     </TextView>
 
-    <RadioGroup
+    <com.mozu_k.mobilecloset.MultiRowsRadioGroup
         android:id="@+id/color"
         android:orientation="vertical"
         android:layout_width="250dp"
@@ -111,6 +111,7 @@
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
                 android:background="@drawable/circle_style_red"/>
             <RadioButton
                 android:id="@+id/pink"
@@ -118,6 +119,7 @@
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
                 android:background="@drawable/circle_style_pink"/>
             <RadioButton
                 android:id="@+id/orange"
@@ -125,6 +127,7 @@
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
                 android:background="@drawable/circle_style_orange"/>
             <RadioButton
                 android:id="@+id/yellow"
@@ -132,6 +135,7 @@
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
                 android:background="@drawable/circle_style_yellow"/>
             <RadioButton
                 android:id="@+id/green"
@@ -139,12 +143,14 @@
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
                 android:background="@drawable/circle_style_green"/>
             <RadioButton
                 android:id="@+id/blue"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:button="@null"
+                android:onClick="onRadioButtonClicked"
                 android:background="@drawable/circle_style_blue"/>
 
         </LinearLayout>
@@ -161,52 +167,59 @@
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/circle_style_red"/>
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_purple"/>
             <RadioButton
                 android:id="@+id/brown"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/circle_style_pink"/>
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_brown"/>
             <RadioButton
                 android:id="@+id/beige"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/circle_style_orange"/>
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_beige"/>
             <RadioButton
                 android:id="@+id/gray"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/circle_style_yellow"/>
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_gray"/>
             <RadioButton
                 android:id="@+id/white"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/circle_style_green"/>
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_white"/>
             <RadioButton
                 android:id="@+id/black"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:button="@null"
                 android:layout_marginEnd="10dp"
-                android:background="@drawable/circle_style_blue"/>
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_black"/>
             <RadioButton
                 android:id="@+id/colorful"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:button="@null"
-                android:background="@drawable/circle_style_blue"/>
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_colorful"/>
 
         </LinearLayout>
 
-    </RadioGroup>
+    </com.mozu_k.mobilecloset.MultiRowsRadioGroup>
 
     <TextView
         android:id="@+id/price_text"

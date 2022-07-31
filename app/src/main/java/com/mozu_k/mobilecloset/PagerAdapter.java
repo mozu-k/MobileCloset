@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
-    private static final int NUM_PAGES = 10;
-    private String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
+    private static final int NUM_PAGES = 8;
+    private String[] categories = {"トップス","ボトムス","ワンピース・セットアップ","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
 
     public PagerAdapter(FragmentManager fm) {
         super(fm,BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);

@@ -9,10 +9,10 @@
     <string name="brand">ブランド</string>
     <string name="tops">トップス</string>
     <string name="bottoms">ボトムス</string>
-    <string name="dress">ワンピース</string>
+    <string name="dress">ワンピース・セットアップ</string>
     <string name="jacket">ジャケット</string>
     <string name="inner">インナー</string>
     <string name="shoes">靴</string>
     <string name="bag">バッグ</string>
-    <string name="accessary">小物・アクセサリー</string>
+    <string name="accessory">小物・アクセサリー</string>
 </resources>

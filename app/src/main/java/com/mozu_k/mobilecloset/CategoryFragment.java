@@ -24,7 +24,7 @@ public class CategoryFragment extends Fragment implements AdapterView.OnItemClic
     private OpenHelper helper;
     private SQLiteDatabase db;
     private int fragmentNumber = 0;
-    private String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
+    private String[] categories = {"トップス","ボトムス","ワンピース・セットアップ","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
     private static final int REQUEST_CODE = 3;
     private static final int RESULT_OK = -1;
 

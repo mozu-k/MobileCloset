@@ -10,6 +10,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -72,5 +74,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 }
         }
+    }
+
+    //メニューボタン実装
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        //インフレーターを使ってメニューを表示させる
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.search, menu);
+        return true;
     }
 }

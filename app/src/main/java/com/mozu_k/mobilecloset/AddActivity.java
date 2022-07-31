@@ -19,6 +19,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
     private EditText name,price,brand;
     private Spinner category;
     private RadioGroup color;
+    private String selectedColor = "";
     private OpenHelper helper;
     private SQLiteDatabase db;
     private int currentPageNumber;
@@ -34,7 +35,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         this.currentPageNumber = extra.getInt("page");
 
         //カテゴリー用ドロップダウン
-        String[] categories = {"トップス","ボトムス","ワンピース","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
+        String[] categories = {"トップス","ボトムス","ワンピース・セットアップ","ジャケット","インナー","靴","バッグ","小物・アクセサリー"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (this,R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
@@ -46,7 +47,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
         this.category.setSelection(currentPageNumber);  //初期値を開いていたカテゴリに自動で設定
 
         this.name = (EditText)findViewById(R.id.name);
-        this.color = (RadioGroup)findViewById(R.id.color);
+        this.color = (RadioGroup) findViewById(R.id.color);
         this.price = (EditText)findViewById(R.id.price);
         this.brand = (EditText)findViewById(R.id.brand);
 
@@ -70,7 +71,7 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
                 values.put("title",this.name.getText().toString());
                 values.put("category",this.category.getSelectedItem().toString());
-                //values.put("color",this.color.getText().toString());
+                values.put("color",this.selectedColor);
                 if(this.price.getText().toString().equals("") == false){
                     values.put("price",Integer.parseInt(this.price.getText().toString()));
                 }else{
@@ -86,6 +87,80 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
             case R.id.cancel:
                 finish();
+        }
+    }
+
+    public void onRadioButtonClicked(View view){
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.red:
+                if (checked){
+                    this.selectedColor = "red";
+                }
+                break;
+            case R.id.pink:
+                if (checked){
+                    this.selectedColor = "pink";
+                }
+                break;
+            case R.id.orange:
+                if(checked){
+                    this.selectedColor = "orange";
+                }
+                break;
+            case R.id.yellow:
+                if(checked){
+                    this.selectedColor = "yellow";
+                }
+                break;
+            case R.id.green:
+                if(checked){
+                    this.selectedColor = "green";
+                }
+                break;
+            case R.id.blue:
+                if (checked){
+                    this.selectedColor = "blue";
+                }
+                break;
+            case R.id.purple:
+                if (checked){
+                    this.selectedColor = "purple";
+                }
+                break;
+            case R.id.brown:
+                if(checked){
+                    this.selectedColor = "brown";
+                }
+                break;
+            case R.id.beige:
+                if(checked){
+                    this.selectedColor = "beige";
+                }
+                break;
+            case R.id.gray:
+                if(checked){
+                    this.selectedColor = "gray";
+                }
+                break;
+            case R.id.white:
+                if(checked){
+                    this.selectedColor = "white";
+                }
+                break;
+            case R.id.black:
+                if(checked){
+                    this.selectedColor = "black";
+                }
+                break;
+            case R.id.colorful:
+                if(checked){
+                    this.selectedColor = "colorful";
+                }
+                break;
         }
     }
 }

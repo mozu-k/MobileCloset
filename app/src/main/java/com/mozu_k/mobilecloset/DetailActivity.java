@@ -13,15 +13,17 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener,AlertDialogFragment.AlertDialogListener{
 
     private OpenHelper helper;
     private SQLiteDatabase db;
-    private TextView name, category, color, price, brand;
+    private TextView name, category, price, brand;
+    private ImageView color;
     private static final String TABLE_NAME = "ClosetDB";
-    private int id, currentPageNumber;
+    private int id = 111, currentPageNumber;
     private static final int REQUEST_CODE = 2;
 
     @Override
@@ -37,7 +39,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         this.name = (TextView) findViewById(R.id.name);
         this.category = (TextView) findViewById(R.id.category);
-        this.color = (TextView) findViewById(R.id.color);
+        this.color = (ImageView) findViewById(R.id.color);
         this.price = (TextView) findViewById(R.id.price);
         this.brand = (TextView) findViewById(R.id.brand);
 
@@ -65,9 +67,50 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
         this.name.setText(cursor.getString(1));
         this.category.setText(cursor.getString(2));
-        this.color.setText(cursor.getString(3));
         this.price.setText(String.valueOf(cursor.getInt(4)) + "円");
         this.brand.setText(cursor.getString(5));
+
+        switch(cursor.getString(3)){
+            case "red":
+                this.color.setImageResource(R.drawable.circle_style_red);
+                break;
+            case "pink":
+                this.color.setImageResource(R.drawable.circle_style_pink);
+                break;
+            case "orange":
+                this.color.setImageResource(R.drawable.circle_style_orange);
+                break;
+            case "yellow":
+                this.color.setImageResource(R.drawable.circle_style_yellow);
+                break;
+            case "green":
+                this.color.setImageResource(R.drawable.circle_style_green);
+                break;
+            case "blue":
+                this.color.setImageResource(R.drawable.circle_style_blue);
+                break;
+            case "purple":
+                this.color.setImageResource(R.drawable.circle_style_purple);
+                break;
+            case "brown":
+                this.color.setImageResource(R.drawable.circle_style_brown);
+                break;
+            case "beige":
+                this.color.setImageResource(R.drawable.circle_style_beige);
+                break;
+            case "gray":
+                this.color.setImageResource(R.drawable.circle_style_gray);
+                break;
+            case "white":
+                this.color.setImageResource(R.drawable.circle_style_white);
+                break;
+            case "black":
+                this.color.setImageResource(R.drawable.circle_style_black);
+                break;
+            case "colorful":
+                this.color.setImageResource(R.drawable.circle_style_colorful);
+                break;
+        }
     }
 
     @Override

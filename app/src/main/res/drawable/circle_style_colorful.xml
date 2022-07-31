@@ -6,8 +6,11 @@
             <shape
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:shape="oval">
-                <solid
-                    android:color="#FFA500"></solid>
+                <gradient
+                    android:startColor="#FF0000"
+                    android:centerColor="#e6e600"
+                    android:endColor="#0000FF"
+                    android:angle="225"></gradient>
             </shape>
         </item>
         <item
@@ -20,8 +23,11 @@
             <shape
                 xmlns:android="http://schemas.android.com/apk/res/android"
                 android:shape="oval">
-                <solid
-                    android:color="#FFA500"></solid>
+                <gradient
+                    android:startColor="#FF0000"
+                    android:centerColor="#e6e600"
+                    android:endColor="#0000FF"
+                    android:angle="225"></gradient>
             </shape>
         </item>
     </layer-list>

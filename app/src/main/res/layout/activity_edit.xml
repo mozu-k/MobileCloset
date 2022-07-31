@@ -85,21 +85,140 @@
         app:layout_constraintStart_toStartOf="parent">
     </TextView>
 
-    <EditText
+    <com.mozu_k.mobilecloset.MultiRowsRadioGroup
         android:id="@+id/color"
+        android:orientation="vertical"
         android:layout_width="250dp"
-        android:layout_height="40dp"
-        android:textSize="18dp"
-        android:background="@drawable/underline_style"
+        android:layout_height="80dp"
         android:gravity="center"
-        android:inputType="text"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintTop_toBottomOf="@+id/category"
         app:layout_constraintBottom_toTopOf="@id/price"
         app:layout_constraintStart_toStartOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent">
-    </EditText>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/red"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_red"/>
+            <RadioButton
+                android:id="@+id/pink"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_pink"/>
+            <RadioButton
+                android:id="@+id/orange"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_orange"/>
+            <RadioButton
+                android:id="@+id/yellow"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_yellow"/>
+            <RadioButton
+                android:id="@+id/green"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_green"/>
+            <RadioButton
+                android:id="@+id/blue"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_blue"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <RadioButton
+                android:id="@+id/purple"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_purple"/>
+            <RadioButton
+                android:id="@+id/brown"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_brown"/>
+            <RadioButton
+                android:id="@+id/beige"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_beige"/>
+            <RadioButton
+                android:id="@+id/gray"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_gray"/>
+            <RadioButton
+                android:id="@+id/white"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_white"/>
+            <RadioButton
+                android:id="@+id/black"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:layout_marginEnd="10dp"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_black"/>
+            <RadioButton
+                android:id="@+id/colorful"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:button="@null"
+                android:onClick="onRadioButtonClicked"
+                android:background="@drawable/circle_style_colorful"/>
+
+        </LinearLayout>
+
+    </com.mozu_k.mobilecloset.MultiRowsRadioGroup>
 
     <TextView
         android:id="@+id/price_text"

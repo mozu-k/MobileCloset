@@ -68,7 +68,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18dp"
         app:layout_constraintTop_toBottomOf="@id/name"
-        app:layout_constraintBottom_toTopOf="@+id/color"
+        app:layout_constraintBottom_toTopOf="@+id/colorframe"
         app:layout_constraintStart_toStartOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent">
     </TextView>
@@ -80,26 +80,30 @@
         android:gravity="center"
         android:text="@string/color"
         android:textSize="15dp"
-        app:layout_constraintTop_toTopOf="@id/color"
-        app:layout_constraintEnd_toStartOf="@+id/color"
+        app:layout_constraintTop_toTopOf="@id/colorframe"
+        app:layout_constraintEnd_toStartOf="@+id/colorframe"
         app:layout_constraintStart_toStartOf="parent">
     </TextView>
 
-    <TextView
-        android:id="@+id/color"
+    <LinearLayout
+        android:id="@+id/colorframe"
         android:layout_width="250dp"
         android:layout_height="45dp"
-        android:textSize="18dp"
-        android:background="@drawable/underline_style"
         android:gravity="center"
-        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="40dp"
         app:layout_constraintTop_toBottomOf="@+id/category"
         app:layout_constraintBottom_toTopOf="@id/price"
         app:layout_constraintStart_toStartOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent">
-    </TextView>
+
+        <ImageView
+            android:id="@+id/color"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="center">
+        </ImageView>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/price_text"
@@ -123,7 +127,7 @@
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/color"
+        app:layout_constraintTop_toBottomOf="@+id/colorframe"
         app:layout_constraintBottom_toTopOf="@id/brand"
         app:layout_constraintStart_toStartOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent">
