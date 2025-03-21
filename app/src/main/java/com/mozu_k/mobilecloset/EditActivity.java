@@ -65,6 +65,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         this.name.setText(cursor.getString(1));
         this.price.setText(String.valueOf(cursor.getInt(4)));
         this.brand.setText(cursor.getString(5));
+        this.selectedColor = cursor.getString(3);
 
         switch(cursor.getString(3)){
             case "red":
